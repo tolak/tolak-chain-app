@@ -1,15 +1,8 @@
-# Substrate Front End Template
+# Tolak Chain App
 
-This template allows you to create a front-end application that connects to a
-[Substrate](https://github.com/paritytech/substrate) node back-end with minimal
-configuration. To learn about Substrate itself, visit the
-[Substrate Developer Hub](https://substrate.dev).
+Frontend App build for Tolak Chain. DO NOT use it in any production env, this repo just used to do personal test
 
-The template is built with [Create React App](https://github.com/facebook/create-react-app)
-and [Polkadot js API](https://polkadot.js.org/api/). Familiarity with these tools
-will be helpful, but the template strives to be self-explanatory.
-
-## Using The Template
+## Using The Repo
 
 ### Installation
 
@@ -17,14 +10,14 @@ The codebase is installed using [git](https://git-scm.com/) and [yarn](https://y
 
 ```bash
 # Clone the repository
-git clone https://github.com/substrate-developer-hub/substrate-front-end-template.git
-cd ./substrate-front-end-template
+git clone https://github.com/tolak/tolak-chain-app.git
+cd ./tolak-chain-app
 yarn install
 ```
 
 ## Usage
 
-You can start the template in development mode to connect to a locally running node
+You can start the tolak-chain in development mode to connect to a locally running node
 
 ```bash
 yarn start
@@ -39,7 +32,7 @@ and open `build/index.html` in your favorite browser.
 
 ## Configuration
 
-The template's configuration is stored in the `src/config` directory, with
+The app's configuration is stored in the `src/config` directory, with
 `common.json` being loaded first, then the environment-specific json file,
 and finally environment variables, with precedence.
 
@@ -48,7 +41,7 @@ and finally environment variables, with precedence.
 * `production.json` affects the production environment, triggered in
 `yarn build` command.
 
-Some environment variables are read and integrated in the template `config` object,
+Some environment variables are read and integrated in the app `config` object,
 including:
 
 * `REACT_APP_PROVIDER_SOCKET` overriding `config[PROVIDER_SOCKET]`
@@ -113,4 +106,4 @@ and [src/ChainState.js](./src/ChainState.js) for a query example.
 
 The [Account Selector](./src/AccountSelector.js) provides the user with a unified way to
 select their account from a keyring. If the Balances module is installed in the runtime,
-it also displays the user's token balance. It is included in the template already.
+it also displays the user's token balance. It is included in the app already.
