@@ -15,6 +15,7 @@ export function Main (props) {
   const [status, setStatus] = useState('');
   const [digest, setDigest] = useState('');
   const [owner, setOwner] = useState('');
+  const [newOwner, setNewOwner] = useState('');
   const [block, setBlock] = useState(0);
 
   // Our `FileReader()` which is accessible from our functions below.
@@ -88,6 +89,21 @@ export function Main (props) {
             list={[digest, `Owner: ${owner}`, `Block: ${block}`]}
           />
         </Form.Field>
+        <Form.Field>
+          {/* File selector with a callback to `handleFileChosen`. */}
+          <Input
+            type='text'
+            id='new-owner'
+            label='New owner of the asset'
+            disabled={!isClaimed() || newOwner === accountPair.address}
+            onChange={ e => setNewOwner(e.target) }
+          />
+          {/* Show this message if the file is not claimed. */}
+          <Message
+            warning
+            header='File not Claimed'
+          />
+        </Form.Field>
         {/* Buttons for interacting with the component. */}
         <Form.Field>
           {/* Button to create a claim. Only active if a file is selected,
@@ -102,6 +118,21 @@ export function Main (props) {
               palletRpc: 'assetClaimModule',
               callable: 'createClaim',
               inputParams: [digest],
+              paramFields: [true]
+            }}
+          />
+          {/* Button to transfer a claim. Only active if a file is selected,
+          and is already claimed. Updates the `status`. */}
+          <TxButton
+            accountPair={accountPair}
+            label='Transfer Claim'
+            setStatus={setStatus}
+            type='SIGNED-TX'
+            disabled={!isClaimed() || owner !== accountPair.address}
+            attrs={{
+              palletRpc: 'assetClaimModule',
+              callable: 'transferClaim',
+              inputParams: [digest, newOwner],
               paramFields: [true]
             }}
           />
