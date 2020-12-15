@@ -12,7 +12,7 @@ import Events from './Events';
 import Interactor from './Interactor';
 import Metadata from './Metadata';
 import NodeInfo from './NodeInfo';
-import TemplateModule from './TemplateModule';
+import AssetClaimModule from './AssetClaimModule';
 import Transfer from './Transfer';
 import Upgrade from './Upgrade';
 
@@ -73,7 +73,7 @@ function Main () {
             <Events />
           </Grid.Row>
           <Grid.Row>
-            <TemplateModule accountPair={accountPair} />
+            <AssetClaimModule accountPair={accountPair} />
           </Grid.Row>
         </Grid>
       </Container>
