@@ -1,14 +1,5 @@
 {
   "CUSTOM_TYPES": {
-    "Address": "AccountId",
-    "LookupSource": "AccountId",
-    "MultiSignature": {
-      "_enum": {
-        "Ed25519": "Signature",
-        "Sr25519": "Signature",
-        "Ecdsa": "Signature"
-      }
-    }
   },
   "PROVIDER_SOCKET": "ws://127.0.0.1:9944"
 }
